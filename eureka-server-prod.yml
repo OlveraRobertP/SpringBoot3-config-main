@@ -1,0 +1,9 @@
+server:
+  port: 8761
+
+eureka:
+  instance:
+    hostname: eureka-prod.yourdomain.com
+  client:
+    serviceUrl:
+      defaultZone: http://eureka-prod.yourdomain.com:8761/eureka/

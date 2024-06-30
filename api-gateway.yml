@@ -1,0 +1,17 @@
+spring:
+  cloud:
+    gateway:
+      discovery:
+          locator:
+            enabled: true
+            lower-case-service-id: true
+      routes:
+        - id: test-service
+          uri: lb://TEST-SERVICE
+          predicates:
+            - Path=/test-service/**
+          filters:
+            - StripPrefix=1
+            
+server:
+  port: 8080

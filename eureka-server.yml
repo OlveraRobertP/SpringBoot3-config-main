@@ -1,0 +1,17 @@
+spring:
+  application:
+    name: eureka-server
+
+eureka:
+  instance:
+    leaseRenewalIntervalInSeconds: 30 # Intervalo en segundos en el que las instancias deben enviar renovaciones al servidor Eureka.
+    leaseExpirationDurationInSeconds: 90 # Tiempo en segundos tras el cual el servidor Eureka caducará una instancia si no recibe renovaciones.
+  client:
+    registerWithEureka: false #Indica que este servicio (el servidor Eureka) no debe registrarse a sí mismo como un cliente. Esto es porque es el servidor, no un cliente.
+    fetchRegistry: false # Indica que este servicio no debe intentar obtener información del registro de Eureka. De nuevo, esto es porque es el servidor, no necesita obtener información de sí mismo.
+  server:
+    renewalPercentThreshold: 0.85 # El porcentaje mínimo de renovaciones que deben recibirse antes de que el servidor comience a expirar instancias.
+    evictionIntervalTimerInMs: 60000 #Intervalo en milisegundos en el que el servidor ejecuta la tarea de eliminación (eviction) de instancias caducadas.
+server:
+  servlet:
+    context-path: / #regresa el contexto por default
